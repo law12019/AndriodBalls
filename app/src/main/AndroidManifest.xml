@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.kitware.charleslaw.ball" >
+    android:versionCode="1"
+    android:versionName="1.0" >
+    <uses-sdk
+        android:minSdkVersion="4"
+        android:targetSdkVersion="15" />
+    <application
+        android:icon="@drawable/ic_launcher"
+        android:label="Ball"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:screenOrientation="portrait" android:configChanges="orientation|keyboardHidden"
+            android:name=".MainActivity"
+            android:label="Ball" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>
