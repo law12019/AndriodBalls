@@ -32,9 +32,14 @@ public class AnimatedView extends ImageView{
         this.MContext = context;
         this.H = new Handler();
         this.Balls[0] = new Ball(500, 200, 0, 15);
-        this.Balls[1] = new Ball(400, 900, 0, -15);
-        this.Balls[2] = new Ball(400, 500, 15, 0);
+        this.Balls[0].SetRadius(150);
+        this.Balls[0].setAngularVelocity(0.0);
+        this.Balls[1] = new Ball(698, 1200, 0, -5);
+        //this.Balls[1].SetRadius(100);
+        //this.Balls[1].setAngularVelocity(0.0);
+        this.Balls[2] = new Ball(200, 500, 15, 0);
         this.Balls[3] = new Ball(600, 300, -15, 0);
+        this.Balls[3].SetRadius(50);
 
         ScaleDetector = new ScaleGestureDetector(context, new ScaleListener());
     }
