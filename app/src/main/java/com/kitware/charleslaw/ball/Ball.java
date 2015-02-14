@@ -30,7 +30,7 @@ public class Ball {
         this.AngularVelocity = 0.0;
     }
 
-    public void setAngularVelocity(double angularVelocity) {
+    public void SetAngularVelocity(double angularVelocity) {
         AngularVelocity = angularVelocity;
     }
 
@@ -59,11 +59,11 @@ public class Ball {
         return false;
     }
 
-    public void Move(float x, float y) {
-        this.XVelocity = x - this.X;
-        this.YVelocity = y - this.Y;
-        this.X = x;
-        this.Y = y;
+    public void Move(float dx, float dy) {
+        this.XVelocity = dx;
+        this.YVelocity = dy;
+        this.X += dx;
+        this.Y += dy;
     }
 
     protected void Collide(Ball otherBall) {
@@ -113,7 +113,7 @@ public class Ball {
         otherBall.YVelocity -= dy * k / otherBall.Mass;
     }
 
-    protected void Draw(Canvas c, int width, int height, Context ctx) {
+    protected void Draw(Canvas c, int width, int height, float[] acceleration, Context ctx) {
         BitmapDrawable ball = (BitmapDrawable) ctx.getResources().getDrawable(R.drawable.ball);
 
         // Zero angular momentum for now.
@@ -140,7 +140,8 @@ public class Ball {
             this.AngularVelocity = -180.0 * this.XVelocity / (Math.PI*this.Radius);
         }
         // Gravity
-        this.YVelocity += 0.5;
+        this.XVelocity += 0.1 * acceleration[0];
+        this.YVelocity += 0.1 * acceleration[1];
 
         c.save();
         this.Rotation += this.AngularVelocity;
